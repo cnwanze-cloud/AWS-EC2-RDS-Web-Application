@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CloudCare | RDS Patient Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+
+            <div>
+                <h2>CloudCare</h2>
+                <span>RDS Management</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#dashboard" class="nav-item active">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="#add-patient" class="nav-item">
+                <span>＋</span>
+                Add Patient
+            </a>
+
+            <a href="#records" class="nav-item">
+                <span>♙</span>
+                Patient Records
+            </a>
+
+        </nav>
+
+        <div class="connection-card">
+
+            <div class="connection-status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>RDS Connected</strong>
+                    <small>MySQL Database</small>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">CLOUD DATABASE APPLICATION</p>
+
+                <h1>Patient Management</h1>
+
+                <p class="subtitle">
+                    Manage patient records stored securely in Amazon RDS.
+                </p>
+            </div>
+
+            <div class="server-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>EC2 → RDS</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="dashboard-section">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ♙
+                    </div>
+
+                    <div>
+                        <span>Total Patients</span>
+                        <strong id="totalPatients">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Database Status</span>
+                        <strong class="online-text">Online</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ▤
+                    </div>
+
+                    <div>
+                        <span>Database</span>
+                        <strong>CloudCare</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ☁
+                    </div>
+
+                    <div>
+                        <span>Storage</span>
+                        <strong>Amazon RDS</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADD PATIENT ================= -->
+
+        <section id="add-patient" class="content-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">DATABASE INSERT</p>
+
+                    <h2>Add New Patient</h2>
+
+                    <p>
+                        Enter patient information and save it directly to RDS.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="patientForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="full_name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="full_name"
+                            name="full_name"
+                            placeholder="e.g. Chigozie Samuel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            placeholder="e.g. 25"
+                            min="1"
+                            max="120"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select
+                            id="gender"
+                            name="gender"
+                            required
+                        >
+
+                            <option value="">
+                                Select gender
+                            </option>
+
+                            <option value="Male">
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            placeholder="e.g. 08012345678"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="diagnosis">
+                            Diagnosis
+                        </label>
+
+                        <input
+                            type="text"
+                            id="diagnosis"
+                            name="diagnosis"
+                            placeholder="e.g. Malaria"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="btn secondary"
+                    >
+                        Clear
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn primary"
+                    >
+                        <span>＋</span>
+                        Add Patient
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= PATIENT RECORDS ================= -->
+
+        <section id="records" class="content-card">
+
+            <div class="section-heading records-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        RDS DATABASE
+                    </p>
+
+                    <h2>Patient Records</h2>
+
+                    <p>
+                        Live records retrieved from your Amazon RDS MySQL database.
+                    </p>
+
+                </div>
+
+
+                <div class="search-container">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search patients..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Patient</th>
+
+                            <th>Age</th>
+
+                            <th>Gender</th>
+
+                            <th>Phone</th>
+
+                            <th>Diagnosis</th>
+
+                            <th>Date Added</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="patientsBody">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="loading"
+                            >
+                                Loading patient records...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <span>
+                CloudCare Patient Management
+            </span>
+
+            <span>
+                EC2 • PHP • MySQL • Amazon RDS
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ================= EDIT MODAL ================= -->
+
+<div
+    id="editModal"
+    class="modal-overlay"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <p class="section-label">
+                    UPDATE RECORD
+                </p>
+
+                <h2>Edit Patient</h2>
+
+            </div>
+
+            <button
+                type="button"
+                id="closeModal"
+                class="close-btn"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="editForm">
+
+            <input
+                type="hidden"
+                id="edit_id"
+            >
+
+
+            <div class="form-group">
+
+                <label for="edit_full_name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="edit_full_name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="edit_age">
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="edit_age"
+                    min="1"
+                    max="120"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="edit_gender">
+                    Gender
+                </label>
+
+                <select id="edit_gender" required>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="edit_phone">
+                    Phone
+                </label>
+
+                <input
+                    type="text"
+                    id="edit_phone"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="edit_diagnosis">
+                    Diagnosis
+                </label>
+
+                <input
+                    type="text"
+                    id="edit_diagnosis"
+                    required
+                >
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    class="btn secondary"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= NOTIFICATION ================= -->
+
+<div
+    id="notification"
+    class="notification"
+>
+    <span id="notificationMessage"></span>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
