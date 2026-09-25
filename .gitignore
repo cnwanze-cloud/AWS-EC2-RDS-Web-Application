@@ -1,0 +1,59 @@
+# ==============================
+# Environment / Secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
+
+# AWS credentials
+.aws/
+credentials
+config
+
+# Private keys
+*.pem
+*.key
+*.ppk
+
+# ==============================
+# PHP
+# ==============================
+
+vendor/
+
+# PHP error/log files
+*.log
+
+# ==============================
+# OS generated files
+# ==============================
+
+.DS_Store
+Thumbs.db
+
+# ==============================
+# IDE / Editor files
+# ==============================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==============================
+# Temporary files
+# ==============================
+
+*.tmp
+*.temp
+*.bak
+*~
+
+# ==============================
+# Local development
+# ==============================
+
+uploads/
+cache/
+tmp/
